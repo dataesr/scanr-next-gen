@@ -13,6 +13,7 @@ import Organization from "./pages/organizations/[id]";
 import Patents from "./pages/patents/[id]";
 import Project from "./pages/projects/[id]";
 import Networks from "./pages/networks";
+import Chat from "./pages/chat"
 import Suggest from "./pages/suggest";
 import HEPartners from "./pages/search/he";
 import Resources from "./pages/about/resources";
@@ -98,6 +99,7 @@ export default function Router() {
             <Route path="patents" element={<Search />} />
           </Route>
           <Route path="/networks" element={<Networks />} />
+          <Route path="/chat" element={<Chat />} />
           <Route
             path="/trouver-des-partenaires-pour-horizon-europe/:id"
             element={<HEPartners />}
