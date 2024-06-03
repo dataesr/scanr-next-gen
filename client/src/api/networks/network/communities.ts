@@ -3,7 +3,7 @@ import louvain from "graphology-communities-louvain"
 import { arrayPush, labelClean } from "../_utils/functions"
 import { networkSearchHits } from "../search/search"
 import { ElasticHits, NetworkCommunities, NetworkFilters } from "../../../types/network"
-import { openAiLabeledClusters } from "./mistralai"
+import { aiLabeledClusters } from "./mistralai"
 import { COLORS } from "../_utils/constants"
 import { GetColorName } from "hex-color-to-color-name"
 
@@ -113,7 +113,7 @@ export default async function communitiesCreate(graph: Graph, computeClusters: b
   ).then((c) => c.sort((a, b) => b.size - a.size))
 
   // Add labels with IA
-  const labeledCommunities = await openAiLabeledClusters(await communities)
+  const labeledCommunities = await aiLabeledClusters(await communities)
 
   if (labeledCommunities) return labeledCommunities
 
